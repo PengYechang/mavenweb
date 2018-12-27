@@ -22,6 +22,7 @@
                     <th>结束时间</th>
                     <th>创建时间</th>
                     <th>详情页</th>
+                    <
                 </tr>
                 </thead>
                 <tbody>

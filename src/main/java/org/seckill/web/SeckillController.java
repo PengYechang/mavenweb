@@ -27,6 +27,11 @@ public class SeckillController {
     @Autowired
     private SeckillService seckillService;
 
+    @RequestMapping(value = "/list2", method = RequestMethod.GET)
+    public String list2(Model model) {
+        return "list2";///WEB-INF/jsp/list2.jsp   (参考spring-web.xml)
+    }
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
         List<Seckill> list = seckillService.getSeckillList();
