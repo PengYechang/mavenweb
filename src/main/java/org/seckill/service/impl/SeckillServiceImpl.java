@@ -38,7 +38,7 @@ public class SeckillServiceImpl implements SeckillService {
 
     @Override
     public List<Seckill> getSeckillList() {
-        return seckillDao.queryAll(0, 4);
+        return seckillDao.queryAll(0, 100);
     }
 
     @Override
@@ -103,5 +103,10 @@ public class SeckillServiceImpl implements SeckillService {
             logger.error(e.getMessage(), e);
             throw new SeckillException("seckill inner error:" + e.getMessage());
         }
+    }
+
+    @Override
+    public void deleteById(long seckillId) {
+        seckillDao.deleteById(seckillId);
     }
 }

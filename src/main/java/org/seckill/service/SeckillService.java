@@ -44,4 +44,10 @@ public interface SeckillService {
     SeckillExecution executeSeckill(long seckillId, long userPhone, String md5)
             throws RepeatKillException, SeckillCloseException, SeckillException;
 
+    /**
+     * 删除一行数据
+     * @param seckillId
+     */
+    void deleteById(long seckillId);
+
 }

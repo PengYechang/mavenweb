@@ -27,11 +27,16 @@ public interface SeckillDao {
 
     /**
      * 查询所有通过偏移量
-     *
      * @param offset
      * @param limit
      * @return
      */
     List<Seckill> queryAll(@Param("offset") int offset, @Param("limit") int limit);
+
+    /**
+     * 删除一行数据
+     * @param seckillId
+     */
+    void deleteById(long seckillId);
 
 }

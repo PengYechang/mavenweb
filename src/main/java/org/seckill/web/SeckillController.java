@@ -29,6 +29,8 @@ public class SeckillController {
 
     @RequestMapping(value = "/list2", method = RequestMethod.GET)
     public String list2(Model model) {
+        List<Seckill> list = seckillService.getSeckillList();
+        model.addAttribute("list", list);
         return "list2";///WEB-INF/jsp/list2.jsp   (参考spring-web.xml)
     }
 
@@ -37,6 +39,21 @@ public class SeckillController {
         List<Seckill> list = seckillService.getSeckillList();
         model.addAttribute("list", list);
         return "list";///WEB-INF/jsp/list.jsp   (参考spring-web.xml)
+    }
+
+    //管理秒杀页
+    @RequestMapping(value = "/manager", method = RequestMethod.GET)
+    public String manager(Model model) {
+        List<Seckill> list = seckillService.getSeckillList();
+        model.addAttribute("list", list);
+        return "manager";
+    }
+
+    //删除一行数据
+    @RequestMapping(value = "/{seckillId}/delete", method = RequestMethod.GET)
+    public String deleteById(@PathVariable("seckillId") Long seckillId,Model model){
+        seckillService.deleteById(seckillId);
+        return "forward:/seckill/manager";
     }
 
     @RequestMapping(value = "/{seckillId}/detail", method = RequestMethod.GET)

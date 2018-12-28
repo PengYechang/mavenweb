@@ -25,4 +25,8 @@
         order by create_time desc
                  limit #{offset},#{limit}
     </select>
+
+    <delete id="deleteById">
+        delete from seckill.seckill where seckill_id = #{_parameter}
+    </delete>
 </mapper>
