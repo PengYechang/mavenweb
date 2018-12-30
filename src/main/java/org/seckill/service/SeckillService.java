@@ -19,6 +19,21 @@ public interface SeckillService {
     List<Seckill> getSeckillList();
 
     /**
+     * 获取结束页
+     * @param limit 显示内容数
+     * @return
+     */
+    int getEndPage(int limit);
+
+    /**
+     * 分页查询其数据
+     * @param page 第几页
+     * @param limit 显示几条内容
+     * @return
+     */
+    List<Seckill> getSeckillListByFenye(int page,int limit);
+
+    /**
      * 查询单个秒杀记录
      *
      * @param seckillId

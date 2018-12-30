@@ -40,4 +40,10 @@ public class SeckillDaoTest {
         System.out.println(updateCount);
     }
 
+    @Test
+    public void testfindAllCount(){
+        int count = seckillDao.findAllCount();
+        System.out.println(count);
+    }
+
 }

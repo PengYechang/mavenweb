@@ -29,4 +29,8 @@
     <delete id="deleteById">
         delete from seckill.seckill where seckill_id = #{_parameter}
     </delete>
+
+    <select id="findAllCount" resultType="int">
+        select count(*) from seckill.seckill;
+    </select>
 </mapper>

@@ -27,8 +27,8 @@ public interface SeckillDao {
 
     /**
      * 查询所有通过偏移量
-     * @param offset
-     * @param limit
+     * @param offset 偏移量
+     * @param limit 限制数
      * @return
      */
     List<Seckill> queryAll(@Param("offset") int offset, @Param("limit") int limit);
@@ -38,5 +38,11 @@ public interface SeckillDao {
      * @param seckillId
      */
     void deleteById(long seckillId);
+
+    /**
+     * 查询记录了多少条数据
+     * @return int
+     */
+    int findAllCount();
 
 }

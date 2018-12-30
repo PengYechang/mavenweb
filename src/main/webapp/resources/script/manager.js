@@ -1,0 +1,5 @@
+var manager={
+    init:function () {
+    }
+
+}

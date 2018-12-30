@@ -38,7 +38,19 @@ public class SeckillServiceImpl implements SeckillService {
 
     @Override
     public List<Seckill> getSeckillList() {
-        return seckillDao.queryAll(0, 100);
+        return seckillDao.queryAll(0, 1000);
+    }
+
+    @Override
+    public int getEndPage(int limit) {
+        int count = seckillDao.findAllCount();
+        return count/limit+1;
+    }
+
+    @Override
+    public List<Seckill> getSeckillListByFenye(int page, int limit) {
+        int offset = (page-1)*limit;
+        return seckillDao.queryAll(offset,limit);
     }
 
     @Override

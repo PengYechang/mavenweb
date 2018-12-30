@@ -31,8 +31,7 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">电子产品</a></li>
+                <li class="open"><a href="#">电子产品</a></li>
                 <li><a href="#">衣服</a></li>
                 <li><a href="#">食物</a></li>
             </ul>
@@ -69,22 +68,31 @@
                     </tbody>
                 </table>
             </div>
-            <div class="row">
-                <div class="col-xs-9"></div>
-                <div class="col-xs-3">
-                    <ul class="pagination">
-                        <li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li class="disabled"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
-                </div>
+            <div class="row text-center">
+                <ul class="pagination">
+                    <li id="page0"><a href="/seckill/list2/1">&laquo;</a></li>
+                    <li id="page1"><a href="/seckill/list2/${pages[0]}">${pages[0]}</a></li>
+                    <li id="page2"><a href="/seckill/list2/${pages[1]}">${pages[1]}</a></li>
+                    <li id="page3"><a href="/seckill/list2/${pages[2]}">${pages[2]}</a></li>
+                    <li id="page4"><a href="/seckill/list2/${pages[3]}">${pages[3]}</a></li>
+                    <li id="page5"><a href="/seckill/list2/${pages[4]}">${pages[4]}</a></li>
+                    <li id="page6"><a href="/seckill/list2/${pages[5]}">&raquo;</a></li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
 </body>
+<!--开始交互编程-->
+<script src="/resources/script/list2.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var pages = new Array();
+    pages[0] = ${pages[0]};
+    pages[1] = ${pages[1]};
+    pages[2] = ${pages[2]};
+    pages[3] = ${pages[3]};
+    pages[4] = ${pages[4]};
+    pages[5] = ${pages[5]};
+    list2.init(pages);
+</script>
 </html>

@@ -54,4 +54,11 @@ public class SeckillServiceTest {
         }
     }
 
+    @Test
+    public void testGetSeckillListByFenye(){
+        List<Seckill> list = seckillService.getSeckillListByFenye(1,8);
+        System.out.println("hello");
+
+    }
+
 }
