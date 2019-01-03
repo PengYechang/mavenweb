@@ -15,12 +15,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">秒杀详情页</a>
+        <a class="navbar-brand" href="/seckill/list2/${pages[2]}">秒杀详情页</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/seckill/manager">管理</a></li>
-            <li><a href="#">帮助</a></li>
+            <li><a href="/seckill/manager/1">管理</a></li>
         </ul>
         <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">

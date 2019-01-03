@@ -30,7 +30,7 @@
                     <span class="glyphicon glyphicon-phone"></span>
                 </h3>
             </div>
-            <div class="modal=body">
+            <div class="modal-body">
                 <div class="row">
                     <div class="col-xs-8 col-xs-offset-2">
                         <input type="text" name="killPhone" id="killPhoneKey"

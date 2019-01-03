@@ -55,18 +55,17 @@ public class SeckillController {
     }
 
     //管理秒杀页
-    @RequestMapping(value = "/manager", method = RequestMethod.GET)
-    public String manager(Model model) {
-        List<Seckill> list = seckillService.getSeckillList();
-        model.addAttribute("list", list);
+    @RequestMapping(value = "/manager/{page}", method = RequestMethod.GET)
+    public String manager(@PathVariable("page") int page,Model model) {
+        list2ByPage(page,model);
         return "manager";
     }
 
     //删除一行数据
-    @RequestMapping(value = "/{seckillId}/delete", method = RequestMethod.GET)
-    public String deleteById(@PathVariable("seckillId") Long seckillId,Model model){
+    @RequestMapping(value = "/manager/{page}/{seckillId}/delete", method = RequestMethod.GET)
+    public String deleteById(@PathVariable("page") int page,@PathVariable("seckillId") Long seckillId,Model model){
         seckillService.deleteById(seckillId);
-        return manager(model);
+        return manager(page,model);
     }
 
     @RequestMapping(value = "/{seckillId}/detail", method = RequestMethod.GET)

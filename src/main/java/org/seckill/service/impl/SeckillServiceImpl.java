@@ -44,7 +44,7 @@ public class SeckillServiceImpl implements SeckillService {
     @Override
     public int getEndPage(int limit) {
         int count = seckillDao.findAllCount();
-        return count/limit+1;
+        return (count-1)/limit+1;
     }
 
     @Override
