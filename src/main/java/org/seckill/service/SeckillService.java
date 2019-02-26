@@ -65,4 +65,10 @@ public interface SeckillService {
      */
     void deleteById(long seckillId);
 
+    /**
+     * 添加一条数据
+     * @param seckill
+     */
+    void addOneSeckill(Seckill seckill);
+
 }

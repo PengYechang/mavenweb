@@ -22,7 +22,7 @@
             <li><a href="/seckill/manager/1">管理</a></li>
         </ul>
         <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
+            <input id="search" type="text" class="form-control" placeholder="Search...">
         </form>
     </div>
 </div>

@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -59,6 +62,25 @@ public class SeckillServiceTest {
         List<Seckill> list = seckillService.getSeckillListByFenye(1,8);
         System.out.println("hello");
 
+    }
+
+    @Test
+    public void testAddOneSeckill(){
+        Seckill seckill = new Seckill();
+        seckill.setName("123");
+        seckill.setNumber(12);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String startTime = "2018-12-09 12:12:12";
+        String endTime = "2018-12-09 12:12:12";
+        try {
+            Date startDate = simpleDateFormat.parse(startTime);
+            Date endDate = simpleDateFormat.parse(endTime);
+            seckill.setStartTime(startDate);
+            seckill.setEndTime(endDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        seckillService.addOneSeckill(seckill);
     }
 
 }

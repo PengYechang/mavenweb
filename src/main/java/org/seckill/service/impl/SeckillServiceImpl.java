@@ -121,4 +121,9 @@ public class SeckillServiceImpl implements SeckillService {
     public void deleteById(long seckillId) {
         seckillDao.deleteById(seckillId);
     }
+
+    @Override
+    public void addOneSeckill(Seckill seckill) {
+        seckillDao.addOneSeckill(seckill);
+    }
 }

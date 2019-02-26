@@ -59,7 +59,7 @@ var seckill = {
     },
     //验证手机号
     validatePhone: function (phone) {
-        if (phone && phone.length == 11 && !isNaN(phone)) {
+        if (phone && phone.length == 11 && phone%1 === 0 && phone>0) {
             return true;
         } else {
             return false;
@@ -109,7 +109,7 @@ var seckill = {
             var startTime = params['startTime'];
             var endTime = params['endTime'];
             var seckillId = params['seckillId'];
-            $.get(seckill.URL.now(), {}, function (result) {
+            $.get(seckill.URL.now(), function (result) {
                 if (result && result['success']) {
                     var nowTime = result['data'];
                     //时间判断

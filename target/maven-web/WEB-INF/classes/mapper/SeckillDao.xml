@@ -26,6 +26,18 @@
                  limit #{offset},#{limit}
     </select>
 
+    <select id="queryByName" resultType="Seckill">
+        select seckill_id,name,number,start_time,end_time,CREATE_TIME
+        from seckill
+        <where>
+            <if test="name != null and !&quot;&quot;.equals(name.trim())">
+                name = #{name}
+            </if>
+        </where>
+        order by create_time desc
+                 limit #{offset},#{limit}
+    </select>
+
     <delete id="deleteById">
         delete from seckill.seckill where seckill_id = #{_parameter}
     </delete>
@@ -33,4 +45,9 @@
     <select id="findAllCount" resultType="int">
         select count(*) from seckill.seckill;
     </select>
+
+    <insert id="addOneSeckill" parameterType="Seckill">
+        insert into seckill.seckill(name, number, start_time, end_time)
+        values(#{seckill.name},#{seckill.number},#{seckill.startTime},#{seckill.endTime})
+    </insert>
 </mapper>

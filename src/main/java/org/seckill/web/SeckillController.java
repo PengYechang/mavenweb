@@ -15,8 +15,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/seckill")// url:/模块/资源/{id}/细分
@@ -128,5 +131,17 @@ public class SeckillController {
     public SeckillResult<Long> time() {
         Date now = new Date();
         return new SeckillResult<>(true, now.getTime());
+    }
+
+    @RequestMapping(value = "/commitSeckill", method = RequestMethod.POST)
+    @ResponseBody
+    public void commitSeckill(String name,String number,String startTime,String endTime) throws Exception{
+        Seckill seckill = new Seckill();
+        seckill.setName(name);
+        seckill.setNumber(Integer.parseInt(number));
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        seckill.setStartTime(format.parse(startTime));
+        seckill.setEndTime(format.parse(endTime));
+        seckillService.addOneSeckill(seckill);
     }
 }

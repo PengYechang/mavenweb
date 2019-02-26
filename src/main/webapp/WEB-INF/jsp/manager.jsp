@@ -3,7 +3,7 @@
 <%@include file="common/tag.jsp" %>
 <html>
 <head>
-    <title>秒杀列表页</title>
+    <title>管理秒杀页</title>
     <%@include file="common/head.jsp" %>
     <link href="/resources/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 </head>
@@ -135,7 +135,9 @@
             </div>
             <div class="modal-footer">
                 <%--验证信息--%>
+                <span class="glyphicon" id="seckillCommitMsg"></span>
                 <button type="button" id="seckillBtn" class="btn btn-success">
+                    <span class="glyphicon glyphicon-ok"></span>
                     Submit
                 </button>
             </div>
@@ -151,12 +153,6 @@
 <script src="/resources/script/list2.js" type="text/javascript"></script>
 <script src="/resources/script/manager.js" type="text/javascript"></script>
 <script type="text/javascript">
-    $('.form_datetime').datetimepicker({
-        language:  'zh-CN',
-        format: 'yyyy-mm-dd hh:ii:ss',
-        autoclose: true,
-        todayHighlight: true,
-    });
     var pages = new Array();
     pages[0] = ${pages[0]};
     pages[1] = ${pages[1]};

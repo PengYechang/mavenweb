@@ -34,6 +34,15 @@ public interface SeckillDao {
     List<Seckill> queryAll(@Param("offset") int offset, @Param("limit") int limit);
 
     /**
+     * 通过秒杀名称 实现搜索功能
+     * @param name 秒杀名称
+     * @param offset 偏移量
+     * @param limit 限制数
+     * @return
+     */
+    List<Seckill> queryByName(@Param("name") String name, @Param("offset") int offset, @Param("limit") int limit);
+
+    /**
      * 删除一行数据
      * @param seckillId
      */
@@ -44,5 +53,11 @@ public interface SeckillDao {
      * @return int
      */
     int findAllCount();
+
+    /**
+     * 增加一条数据
+     * @param seckill
+     */
+    void addOneSeckill(@Param("seckill")Seckill seckill);
 
 }
