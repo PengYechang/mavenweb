@@ -3,6 +3,7 @@ package org.seckill.web;
 import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
 import org.seckill.dto.SeckillResult;
+import org.seckill.entity.Page;
 import org.seckill.entity.Seckill;
 import org.seckill.enums.SeckillStateEnum;
 import org.seckill.exception.RepeatKillException;
@@ -15,11 +16,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
+import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("/seckill")// url:/模块/资源/{id}/细分
@@ -27,48 +27,48 @@ public class SeckillController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private static final int pageLimit = 8;
-
     @Autowired
     private SeckillService seckillService;
 
-    @RequestMapping(value = "/list2", method = RequestMethod.GET)
-    public String list2(Model model) {
-        return list2ByPage(1,model);///WEB-INF/jsp/list2.jsp   (参考spring-web.xml)
-    }
+//    @RequestMapping(value = "/list2", method = RequestMethod.GET)
+//    public String list2(Model model) {
+//        return list2ByPage(1,model);///WEB-INF/jsp/list2.jsp   (参考spring-web.xml)
+//    }
+//
+//    @RequestMapping(value = "/list2/{page}", method = RequestMethod.GET)
+//    public String list2ByPage(@PathVariable("page") int page,Model model) {
+//        List<Seckill> list = seckillService.getSeckillListByFenye(page,pageLimit);
+//        model.addAttribute("list", list);
+//        int[] pages = new int[6];
+//        for(int i=0;i<pages.length;i++){
+//            pages[i] = i+page-2;
+//        }
+//        pages[5] = seckillService.getEndPage(pageLimit);
+//        model.addAttribute("pages", pages);
+//        return "list2";///WEB-INF/jsp/list2.jsp   (参考spring-web.xml)
+//    }
 
-    @RequestMapping(value = "/list2/{page}", method = RequestMethod.GET)
-    public String list2ByPage(@PathVariable("page") int page,Model model) {
-        List<Seckill> list = seckillService.getSeckillListByFenye(page,pageLimit);
-        model.addAttribute("list", list);
-        int[] pages = new int[6];
-        for(int i=0;i<pages.length;i++){
-            pages[i] = i+page-2;
+    @RequestMapping(value = "/list")
+    public String list(String currentPage,
+                       Model model) {
+        Page page = new Page();
+        Pattern pattern = Pattern.compile("[0-9]{1,9}");
+        if(currentPage == null ||  !pattern.matcher(currentPage).matches()) {
+            page.setCurrentPage(1);
+        } else {
+            page.setCurrentPage(Integer.valueOf(currentPage));
         }
-        pages[5] = seckillService.getEndPage(pageLimit);
-        model.addAttribute("pages", pages);
-        return "list2";///WEB-INF/jsp/list2.jsp   (参考spring-web.xml)
-    }
-
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(Model model) {
-        List<Seckill> list = seckillService.getSeckillList();
+        List<Seckill> list = seckillService.getSeckillListByFenye(null,page);
         model.addAttribute("list", list);
+        model.addAttribute("page",page);
         return "list";///WEB-INF/jsp/list.jsp   (参考spring-web.xml)
     }
 
     //管理秒杀页
-    @RequestMapping(value = "/manager/{page}", method = RequestMethod.GET)
-    public String manager(@PathVariable("page") int page,Model model) {
-        list2ByPage(page,model);
+    @RequestMapping(value = "/manager")
+    public String manager(String currentPage,Model model) {
+        //list(currentPage,model);
         return "manager";
-    }
-
-    //删除一行数据
-    @RequestMapping(value = "/manager/{page}/{seckillId}/delete", method = RequestMethod.GET)
-    public String deleteById(@PathVariable("page") int page,@PathVariable("seckillId") Long seckillId,Model model){
-        seckillService.deleteById(seckillId);
-        return manager(page,model);
     }
 
     @RequestMapping(value = "/{seckillId}/detail", method = RequestMethod.GET)

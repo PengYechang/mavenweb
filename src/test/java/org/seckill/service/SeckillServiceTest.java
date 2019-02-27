@@ -27,11 +27,6 @@ public class SeckillServiceTest {
     @Autowired
     private SeckillService seckillService;
 
-    @Test
-    public void testGetSeckillList() {
-        List<Seckill> list = seckillService.getSeckillList();
-        logger.info("list={}", list);
-    }
 
     @Test
     public void testGetById() {
@@ -57,12 +52,6 @@ public class SeckillServiceTest {
         }
     }
 
-    @Test
-    public void testGetSeckillListByFenye(){
-        List<Seckill> list = seckillService.getSeckillListByFenye(1,8);
-        System.out.println("hello");
-
-    }
 
     @Test
     public void testAddOneSeckill(){

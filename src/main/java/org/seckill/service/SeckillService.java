@@ -2,6 +2,7 @@ package org.seckill.service;
 
 import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
+import org.seckill.entity.Page;
 import org.seckill.entity.Seckill;
 import org.seckill.exception.RepeatKillException;
 import org.seckill.exception.SeckillCloseException;
@@ -12,26 +13,12 @@ import java.util.List;
 public interface SeckillService {
 
     /**
-     * 查询所有秒杀记录
-     *
-     * @return
-     */
-    List<Seckill> getSeckillList();
-
-    /**
-     * 获取结束页
-     * @param limit 显示内容数
-     * @return
-     */
-    int getEndPage(int limit);
-
-    /**
      * 分页查询其数据
-     * @param page 第几页
-     * @param limit 显示几条内容
+     * @param name 秒杀名称
+     * @param page 页面
      * @return
      */
-    List<Seckill> getSeckillListByFenye(int page,int limit);
+    public List<Seckill> getSeckillListByFenye(String name,Page page);
 
     /**
      * 查询单个秒杀记录

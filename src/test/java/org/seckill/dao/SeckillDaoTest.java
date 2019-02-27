@@ -25,13 +25,6 @@ public class SeckillDaoTest {
         System.out.println(seckill);
     }
 
-    @Test
-    public void testQueryAll() throws Exception {
-        List<Seckill> seckills = seckillDao.queryAll(0, 2);
-        for (Seckill seckill : seckills) {
-            System.out.println(seckill);
-        }
-    }
 
     @Test
     public void testReduceNumber() throws Exception {

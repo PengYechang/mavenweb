@@ -4,6 +4,7 @@ import org.seckill.dao.SeckillDao;
 import org.seckill.dao.SuccessKilledDao;
 import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
+import org.seckill.entity.Page;
 import org.seckill.entity.Seckill;
 import org.seckill.entity.SuccessKilled;
 import org.seckill.enums.SeckillStateEnum;
@@ -19,7 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class SeckillServiceImpl implements SeckillService {
@@ -37,20 +40,12 @@ public class SeckillServiceImpl implements SeckillService {
     private final String slat = "567ihb uyty98jnbiuk";
 
     @Override
-    public List<Seckill> getSeckillList() {
-        return seckillDao.queryAll(0, 1000);
-    }
-
-    @Override
-    public int getEndPage(int limit) {
-        int count = seckillDao.findAllCount();
-        return (count-1)/limit+1;
-    }
-
-    @Override
-    public List<Seckill> getSeckillListByFenye(int page, int limit) {
-        int offset = (page-1)*limit;
-        return seckillDao.queryAll(offset,limit);
+    public List<Seckill> getSeckillListByFenye(String name,Page page) {
+        page.setTotalNumber(seckillDao.findAllCount());
+        Map<String,Object> map = new HashMap<>();
+        map.put("name",name);
+        map.put("page",page);
+        return seckillDao.queryAll(map);
     }
 
     @Override

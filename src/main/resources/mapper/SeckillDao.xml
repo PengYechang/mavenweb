@@ -19,14 +19,7 @@
         where seckill_id = #{_parameter}
     </select>
 
-    <select id="queryAll" resultType="Seckill">
-        select seckill_id,name,number,start_time,end_time,CREATE_TIME
-        from seckill
-        order by create_time desc
-                 limit #{offset},#{limit}
-    </select>
-
-    <select id="queryByName" resultType="Seckill">
+    <select id="queryAll" resultType="Seckill" parameterType="java.util.Map">
         select seckill_id,name,number,start_time,end_time,CREATE_TIME
         from seckill
         <where>
@@ -35,7 +28,7 @@
             </if>
         </where>
         order by create_time desc
-                 limit #{offset},#{limit}
+                 limit #{page.dbIndex},#{page.dbNumber}
     </select>
 
     <delete id="deleteById">

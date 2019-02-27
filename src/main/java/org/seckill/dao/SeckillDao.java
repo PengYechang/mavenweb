@@ -1,17 +1,19 @@
 package org.seckill.dao;
 
 import org.apache.ibatis.annotations.Param;
+import org.seckill.entity.Page;
 import org.seckill.entity.Seckill;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public interface SeckillDao {
 
     /**
      * 减库存
      *
-     * @param seckillId
+     * @param seckillId 秒杀ID
      * @param killTime  减库存的时间
      * @return 更新记录的行数 如果是0则没有成功
      */
@@ -21,26 +23,16 @@ public interface SeckillDao {
      * 查询通过ID
      *
      * @param seckillId
-     * @return
+     * @return Seckill
      */
     Seckill queryById(long seckillId);
 
     /**
      * 查询所有通过偏移量
-     * @param offset 偏移量
-     * @param limit 限制数
-     * @return
+     * @param map key:名称 value:页面
+     * @return 返回秒杀列表
      */
-    List<Seckill> queryAll(@Param("offset") int offset, @Param("limit") int limit);
-
-    /**
-     * 通过秒杀名称 实现搜索功能
-     * @param name 秒杀名称
-     * @param offset 偏移量
-     * @param limit 限制数
-     * @return
-     */
-    List<Seckill> queryByName(@Param("name") String name, @Param("offset") int offset, @Param("limit") int limit);
+    List<Seckill> queryAll(Map<String,Object> map);
 
     /**
      * 删除一行数据
@@ -56,7 +48,7 @@ public interface SeckillDao {
 
     /**
      * 增加一条数据
-     * @param seckill
+     * @param seckill 秒杀
      */
     void addOneSeckill(@Param("seckill")Seckill seckill);
 
