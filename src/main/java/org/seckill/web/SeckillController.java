@@ -49,8 +49,7 @@ public class SeckillController {
 //    }
 
     @RequestMapping(value = "/list")
-    public String list(String currentPage,
-                       Model model) {
+    public String list(String currentPage, String search,Model model) {
         Page page = new Page();
         Pattern pattern = Pattern.compile("[0-9]{1,9}");
         if(currentPage == null ||  !pattern.matcher(currentPage).matches()) {
@@ -58,16 +57,17 @@ public class SeckillController {
         } else {
             page.setCurrentPage(Integer.valueOf(currentPage));
         }
-        List<Seckill> list = seckillService.getSeckillListByFenye(null,page);
+        List<Seckill> list = seckillService.getSeckillListByFenye(search,page);
         model.addAttribute("list", list);
         model.addAttribute("page",page);
+        model.addAttribute("search",search);
         return "list";///WEB-INF/jsp/list.jsp   (参考spring-web.xml)
     }
 
     //管理秒杀页
     @RequestMapping(value = "/manager")
-    public String manager(String currentPage,Model model) {
-        //list(currentPage,model);
+    public String manager(String currentPage,String search,Model model) {
+        list(currentPage,search,model);
         return "manager";
     }
 

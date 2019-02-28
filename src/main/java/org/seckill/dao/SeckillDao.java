@@ -44,7 +44,7 @@ public interface SeckillDao {
      * 查询记录了多少条数据
      * @return int
      */
-    int findAllCount();
+    int findAllCount(String name);
 
     /**
      * 增加一条数据

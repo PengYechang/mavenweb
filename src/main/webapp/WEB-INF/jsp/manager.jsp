@@ -10,7 +10,6 @@
 <body>
 <form action="/seckill/manager" id="mainForm" method="post">
     <input type="hidden" name="currentPage" id="currentPage" value="${page.currentPage}"/>
-</form>
 <div class="navbar navbar-inverse">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -19,16 +18,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/se">管理秒杀页</a>
+        <a class="navbar-brand" href="/seckill/manager">管理秒杀页</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
             <li><a id="addSeckill">添加</a></li>
             <li><a href="/seckill/list">返回</a></li>
         </ul>
-        <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-        </form>
+        <ul class="navbar-form navbar-right">
+            <input id="search" name="search" type="text" class="input-sm" placeholder="Search..." value="${search}">
+            <a href="javascript:changeCurrentPage('1')" class="btn btn-default btn-sm">搜索</a>
+        </ul>
     </div>
 </div>
 <div class="container-fluid">
@@ -97,6 +97,7 @@
     </div>
     </div>
 </div>
+</form>
 <%--登录弹出层--%>
 <div id="addSeckillModel" class="modal fade">
     <div class="modal-dialog">

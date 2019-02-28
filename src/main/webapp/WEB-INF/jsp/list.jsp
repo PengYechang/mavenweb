@@ -20,12 +20,12 @@
         <a class="navbar-brand" href="/seckill/list">秒杀详情页</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-        <ul class="navbar-form navbar-right">
-            <input id="search" type="text" class="form-control" placeholder="Search...">
-            <button type="submit" class="btn btn-default">搜索</button>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/seckill/manager">管理</a></li>
+        </ul>
+        <ul class="navbar-form navbar-right">
+            <input id="search" name="search" type="text" class="input-sm" placeholder="Search..." value="${search}">
+            <a href="javascript:changeCurrentPage('1')" class="btn btn-default btn-sm">搜索</a>
         </ul>
     </div>
 </div>

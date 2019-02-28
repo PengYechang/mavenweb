@@ -41,7 +41,7 @@ public class SeckillServiceImpl implements SeckillService {
 
     @Override
     public List<Seckill> getSeckillListByFenye(String name,Page page) {
-        page.setTotalNumber(seckillDao.findAllCount());
+        page.setTotalNumber(seckillDao.findAllCount(name));
         Map<String,Object> map = new HashMap<>();
         map.put("name",name);
         map.put("page",page);

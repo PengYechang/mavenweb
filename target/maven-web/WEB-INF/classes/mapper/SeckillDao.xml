@@ -24,7 +24,7 @@
         from seckill
         <where>
             <if test="name != null and !&quot;&quot;.equals(name.trim())">
-                name = #{name}
+                name like '%' #{name} '%'
             </if>
         </where>
         order by create_time desc
@@ -35,8 +35,13 @@
         delete from seckill.seckill where seckill_id = #{_parameter}
     </delete>
 
-    <select id="findAllCount" resultType="int">
-        select count(*) from seckill.seckill;
+    <select id="findAllCount" resultType="int" parameterType="java.lang.String">
+        select count(*) from seckill.seckill
+        <where>
+            <if test="_parameter != null and !&quot;&quot;.equals(_parameter.trim())">
+                name like '%' #{_parameter} '%'
+            </if>
+        </where>
     </select>
 
     <insert id="addOneSeckill" parameterType="Seckill">
