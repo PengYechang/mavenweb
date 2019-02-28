@@ -12,9 +12,9 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
 
-    <!--<plugins>-->
-        <!--<plugin interceptor="org.seckill.interceptor"/>-->
-    <!--</plugins>-->
+    <plugins>
+        <plugin interceptor="org.seckill.interceptor.FenyeInterceptor"/>
+    </plugins>
 
 </configuration>
 

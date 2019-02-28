@@ -35,16 +35,18 @@ public interface SeckillDao {
     List<Seckill> queryAll(Map<String,Object> map);
 
     /**
+     * 查询所有通过偏移量
+     * @param map key:名称 value:页面
+     * @return 返回秒杀列表
+     */
+    List<Seckill> queryAllByPage(Map<String,Object> map);
+
+    /**
      * 删除一行数据
      * @param seckillId
      */
     void deleteById(long seckillId);
 
-    /**
-     * 查询记录了多少条数据
-     * @return int
-     */
-    int findAllCount(String name);
 
     /**
      * 增加一条数据
