@@ -54,4 +54,9 @@ public interface SeckillDao {
      */
     void addOneSeckill(@Param("seckill")Seckill seckill);
 
+    /**
+     * 使用存储过程执行秒杀
+     * @param map
+     */
+    void killByProcedure(Map<String,Object> map);
 }
