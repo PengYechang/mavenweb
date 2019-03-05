@@ -91,5 +91,5 @@
 </div>
 </form>
 </body>
-<script src="/resources/script/list.js"></script>
+<script src="${pageContext.request.contextPath}/resources/script/list.js"></script>
 </html>

@@ -83,7 +83,7 @@
 </div>
 </body>
 <!--开始交互编程-->
-<script src="/resources/script/list2.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/resources/script/list2.js" type="text/javascript"></script>
 <script type="text/javascript">
     var pages = new Array();
     pages[0] = ${pages[0]};

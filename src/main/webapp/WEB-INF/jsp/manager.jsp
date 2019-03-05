@@ -5,7 +5,7 @@
 <head>
     <title>管理秒杀页</title>
     <%@include file="common/head.jsp" %>
-    <link href="/resources/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/resources/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
 <form action="/seckill/manager" id="mainForm" method="post">
@@ -157,11 +157,11 @@
 </body>
 </body>
 <!--日期脚本-->
-<script type="text/javascript" src="/resources/datetimepicker/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-<script type="text/javascript" src="/resources/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/datetimepicker/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
 <!--开始交互编程-->
-<script src="/resources/script/manager.js" type="text/javascript"></script>
-<script src="/resources/script/list.js"></script>
+<script src="${pageContext.request.contextPath}/resources/script/manager.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/resources/script/list.js"></script>
 <script type="text/javascript">
     manager.init();
 </script>
