@@ -10,6 +10,7 @@
 <body>
 <form action="/seckill/manager" id="mainForm" method="post">
     <input type="hidden" name="currentPage" id="currentPage" value="${page.currentPage}"/>
+    <input type="hidden" name="seckillId" id="seckillId" value=""/>
 <div class="navbar navbar-inverse">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -68,7 +69,7 @@
                             <fmt:formatDate value="${sk.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                         </td>
                         <td>
-                            <a class="btn btn-danger"  href="#">
+                            <a class="btn btn-danger"  href="javascript:deleteOne(${sk.seckillId})">
                                 <span class="glyphicon glyphicon-remove"></span>
                                 删除
                             </a>

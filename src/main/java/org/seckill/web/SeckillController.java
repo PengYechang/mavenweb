@@ -30,24 +30,6 @@ public class SeckillController {
     @Autowired
     private SeckillService seckillService;
 
-//    @RequestMapping(value = "/list2", method = RequestMethod.GET)
-//    public String list2(Model model) {
-//        return list2ByPage(1,model);///WEB-INF/jsp/list2.jsp   (参考spring-web.xml)
-//    }
-//
-//    @RequestMapping(value = "/list2/{page}", method = RequestMethod.GET)
-//    public String list2ByPage(@PathVariable("page") int page,Model model) {
-//        List<Seckill> list = seckillService.getSeckillListByFenye(page,pageLimit);
-//        model.addAttribute("list", list);
-//        int[] pages = new int[6];
-//        for(int i=0;i<pages.length;i++){
-//            pages[i] = i+page-2;
-//        }
-//        pages[5] = seckillService.getEndPage(pageLimit);
-//        model.addAttribute("pages", pages);
-//        return "list2";///WEB-INF/jsp/list2.jsp   (参考spring-web.xml)
-//    }
-
     @RequestMapping(value = "/list")
     public String list(String currentPage, String search,Model model) {
         Page page = new Page();
@@ -66,7 +48,12 @@ public class SeckillController {
 
     //管理秒杀页
     @RequestMapping(value = "/manager")
-    public String manager(String currentPage,String search,Model model) {
+    public String manager(@ModelAttribute("currentPage") String currentPage,
+                          @ModelAttribute("seckillId") String seckillId,
+                          @ModelAttribute("search") String search,Model model) {
+        if(!seckillId.isEmpty()){
+            seckillService.deleteById(Long.parseLong(seckillId));
+        }
         list(currentPage,search,model);
         return "manager";
     }

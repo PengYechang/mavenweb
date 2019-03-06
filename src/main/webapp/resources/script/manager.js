@@ -28,7 +28,7 @@ var manager={
             var seckillStartTime = $('#dtp_input1').val();
             var seckillEndTime = $('#dtp_input2').val();
             if(seckillName && seckillNumber && seckillStartTime && seckillEndTime
-                && manager.isPositiveInteger(seckillNumber)){
+                && manager.isPositiveInteger(seckillNumber) && seckillStartTime<seckillEndTime){
                 $.post(manager.URL.commitSeckill(),{
                     name:seckillName,
                     number:seckillNumber,
@@ -39,6 +39,8 @@ var manager={
                 });
             }else if(!(seckillName && seckillNumber && seckillStartTime && seckillEndTime)){
                 $('#seckillCommitMsg').hide().html('<label class="label label-danger">输入信息为空！</label>').show(300);
+            }else if (seckillStartTime>=seckillEndTime){
+                alert('秒杀开始时间大于结束时间');
             }else{
                 $('#seckillCommitMsg').hide().html('<label class="label label-danger">库存输入错误！</label>').show(300);
             }
