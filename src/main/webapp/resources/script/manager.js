@@ -6,6 +6,30 @@ var manager={
     },
 
     init:function () {
+        var loginName = $.cookie('loginName');
+        if (!loginName) {
+            var loginModal = $('#loginModal');
+            loginModal.modal({
+                show: true,//显示弹出层
+                backdrop: 'static',//禁止位置关闭
+                keyboard: false //关闭键盘事件
+            });
+            $('#loginBtn').click(function () {
+                var loginName = $('#loginName').val();
+                var loginPwd = $('#loginPwd').val();
+                if (loginName == 'pengyechang' && loginPwd == '123456') {
+                    var isRememberPwd = $('#rememberPwd').prop('checked');
+                    if(isRememberPwd){
+                        $.cookie('loginName', loginName, {expires: 30, path: '/seckill'});
+                    }else{
+                        $.cookie('loginName', loginName, {expires: 1, path: '/seckill'});
+                    }
+                    window.location.reload();
+                } else {
+                    $('#loginMessage').hide().html('<label class="label label-danger">用户名或密码错误！</label>').show(300);
+                }
+            });
+        }
         $('.form_datetime').datetimepicker({
             language:  'zh-CN',
             format: 'yyyy-mm-dd hh:ii:ss',
