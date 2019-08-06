@@ -72,12 +72,12 @@
                     <p>完成限时秒杀功能，框架Maven+SSM,利用Redis和Mysql的存储过程对秒杀页面进行优化，
                         提高同一时间秒杀的用户量。未完成左侧导航栏选择类别功能。管理页面&nbsp&nbsp
                         用户名：pengyechang&nbsp&nbsp密码：123456&nbsp&nbsp 实现了添加和删除秒杀项目功能。</p>
-                    <p><a class="btn btn-default" href="/seckill/list" role="button">View details &raquo;</a></p>
+                    <p><a class="btn btn-default" href="http://pengyechang.xyz/seckill/list" role="button">View details &raquo;</a></p>
                 </div><!--/.col-xs-6.col-lg-4-->
                 <div class="col-xs-6 col-lg-4">
-                    <h2>ToDo</h2>
-                    <p>towrite</p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    <h2>教育后台系统</h2>
+                    <p>正在完善中。。。</p>
+                    <p><a class="btn btn-default" href="http://pengyechang.xyz/edu-manager/user/login.do" role="button">View details &raquo;</a></p>
                 </div><!--/.col-xs-6.col-lg-4-->
                 <div class="col-xs-6 col-lg-4">
                     <h2>ToDo</h2>

@@ -15,11 +15,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring/spring-dao.xml",
-        "classpath:spring/spring-service.xml"})
+@ContextConfiguration({"classpath:spring/dubbo-dao.xml",
+        "classpath:spring/dubbo-service.xml"})
 public class SeckillServiceTest {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());

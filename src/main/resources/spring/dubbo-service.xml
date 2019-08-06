@@ -19,4 +19,7 @@
 
     <!--配置基于注解的声明式事务-->
     <tx:annotation-driven transaction-manager="transationManager"/>
+
+    <import resource="dubbo-dao.xml"/>
+    <import resource="dubbo-provider.xml"/>
 </beans>

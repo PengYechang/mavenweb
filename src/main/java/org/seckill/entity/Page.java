@@ -1,9 +1,11 @@
 package org.seckill.entity;
 
+import java.io.Serializable;
+
 /**
  * 分页对应的实体类
  */
-public class Page {
+public class Page implements Serializable {
 	/**
 	 * 总条数
 	 */
